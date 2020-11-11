@@ -775,6 +775,9 @@ jobs:
                       command: << parameters.build >>
                 working_directory: << parameters.working_directory >>
                 cache-key: << parameters.cache-key >>
+            - slack/status:
+                success_message: ":white_check_mark: Successfully built Next"
+                failure_message: ":warning: Error shipping to TEST :warning:"
       - unless:
           condition: << parameters.build >>
           steps:
